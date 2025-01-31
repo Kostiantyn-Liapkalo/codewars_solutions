@@ -1,5 +1,5 @@
 import unittest
-from codewars_solutions.utils import odd_count, is_isogram
+from codewars_solutions.utils import odd_count, is_isogram, find_outlier
 
 class TestOddCount(unittest.TestCase):
     def test_odd_count(self):
@@ -17,6 +17,15 @@ class TestIsIsogram(unittest.TestCase):
         self.assertTrue(is_isogram("isogram"))  # Усі символи унікальні
         self.assertFalse(is_isogram("hello"))  # 'l' повторюється
         self.assertFalse(is_isogram("Alphabet"))  # 'a' повторюється
+
+class TestFindOutlier(unittest.TestCase):
+    def test_find_outlier(self):
+        self.assertEqual(find_outlier([2, 4, 0, 100, 4, 11, 2602, 36]), 11)  # Один непарний
+        self.assertEqual(find_outlier([160, 3, 1719, 19, 11, 13, -21]), 160)  # Один парний
+        self.assertEqual(find_outlier([10, 8, 6, 4, 2, 7]), 7)  # Один непарний
+        self.assertEqual(find_outlier([-21, -3, -7, 2, -9, -11]), 2)  # Один парний
+        self.assertEqual(find_outlier([1, 3, 5, 7, 9, 2]), 2)  # Один парний
+
 
 if __name__ == "__main__":
     unittest.main()
