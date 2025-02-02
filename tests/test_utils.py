@@ -1,5 +1,5 @@
 import unittest
-from codewars_solutions.utils import odd_count, is_isogram, find_outlier
+from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci
 
 class TestOddCount(unittest.TestCase):
     def test_odd_count(self):
@@ -25,6 +25,29 @@ class TestFindOutlier(unittest.TestCase):
         self.assertEqual(find_outlier([10, 8, 6, 4, 2, 7]), 7)  # Один непарний
         self.assertEqual(find_outlier([-21, -3, -7, 2, -9, -11]), 2)  # Один парний
         self.assertEqual(find_outlier([1, 3, 5, 7, 9, 2]), 2)  # Один парний
+
+
+
+class TestTribonacci(unittest.TestCase):
+    def test_basic_cases(self):
+        self.assertEqual(tribonacci([1, 1, 1], 10), [1, 1, 1, 3, 5, 9, 17, 31, 57, 105])
+        self.assertEqual(tribonacci([0, 0, 1], 10), [0, 0, 1, 1, 2, 4, 7, 13, 24, 44])
+        self.assertEqual(tribonacci([0, 1, 1], 10), [0, 1, 1, 2, 4, 7, 13, 24, 44, 81])
+
+    def test_edge_cases(self):
+        self.assertEqual(tribonacci([1, 1, 1], 1), [1])
+        self.assertEqual(tribonacci([1, 1, 1], 2), [1, 1])
+        self.assertEqual(tribonacci([1, 1, 1], 3), [1, 1, 1])
+        self.assertEqual(tribonacci([1, 1, 1], 0), [])
+        self.assertEqual(tribonacci([5, 5, 5], 6), [5, 5, 5, 15, 25, 45])
+
+if __name__ == "__main__":
+    unittest.main()
+
+
+
+
+
 
 
 if __name__ == "__main__":
