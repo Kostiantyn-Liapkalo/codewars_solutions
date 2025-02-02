@@ -59,4 +59,18 @@ def tribonacci(signature, n):
 
     return result
 
+"""
+def tribonacci(signature, n):
+  res = signature[:n]
+  for i in range(n - 3): res.append(sum(res[-3:]))
+  return res
+"""
+
+"""
+def tribonacci(signature,n):
+    return signature[:n] if n<=len(signature) else tribonacci(signature + [sum(signature[-3:])],n)
+"""
+
+
+
 
