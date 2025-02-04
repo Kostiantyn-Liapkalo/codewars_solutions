@@ -1,3 +1,49 @@
+
+
+
+MORSE_CODE_DICT = {
+    'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....',
+    'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.',
+    'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+    'Y': '-.--', 'Z': '--..', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
+    '6': '-....', '7': '--...', '8': '---..', '9': '----.', '0': '-----', ',': '--..--', '.': '.-.-.-',
+    '?': '..--..', '/': '-..-.', '-': '-....-', '(': '-.--.', ')': '-.--.-', ' ': '/'
+}
+
+
+def encode_morse(text):
+
+    text = text.upper()
+    return ' '.join(MORSE_CODE_DICT.get(char, '') for char in text)
+
+
+def decode_morse(morse_code):
+
+    reversed_dict = {v: k for k, v in MORSE_CODE_DICT.items()}
+    words = morse_code.split(' / ')
+    decoded_words = []
+
+    for word in words:
+        letters = word.split()
+        decoded_word = ''.join(reversed_dict.get(letter, '') for letter in letters)
+        decoded_words.append(decoded_word)
+
+    return ' '.join(decoded_words)
+
+
+# def decodeMorse(morseCode):
+#     return ' '.join(''.join(MORSE_CODE[letter] for letter in word.split(' ')) for word in morseCode.strip().split('   '))
+
+
+# def decodeMorse(morse_sequence):
+#     words = []
+#     for morse_word in morse_sequence.split('   '):
+#         word = ''.join(MORSE_CODE.get(morse_char, '') for morse_char in morse_word.split(' '))
+#         if word:
+#             words.append(word)
+#     return ' '.join(words)
+# _____________________________________
+
 def odd_count(n: int) -> int:
     return n // 2
 
@@ -88,6 +134,47 @@ Don't forget the space after the closing parentheses!
 """
 def create_phone_number(n):
     return "({}{}{}) {}{}{}-{}{}{}{}" .format(*n)
+
+# def create_phone_number(n):
+#   return "(%i%i%i) %i%i%i-%i%i%i%i" % tuple(n)
+
+# create_phone_number = lambda n: f"({n[0]}{n[1]}{n[2]}) {n[3]}{n[4]}{n[5]}-{n[6]}{n[7]}{n[8]}{n[9]}"
+
+# def create_phone_number(n):
+#     num = ''.join(str(h) for h in n);
+#     return f'({num[0:3]}) {num[3:6]}-{num[6:]}'
+
+"""
+In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
+
+Example
+filter_list([1,2,'a','b']) == [1,2]
+filter_list([1,'a','b',0,15]) == [1,0,15]
+filter_list([1,2,'aasf','1','123',123]) == [1,2,123]
+"""
+def filter_list(l):
+    return list(filter(lambda x: isinstance(x, int), l))
+
+# def filter_list(l):
+#     return [x for x in l if isinstance(x, int)]
+
+
+
+"""
+In this kata you have to write a simple Morse code decoder. While the Morse code is now mostly superseded by voice and digital data communication channels, it still has its use in some applications around the world.
+The Morse code encodes every character as a sequence of "dots" and "dashes". For example, the letter A is coded as ·−, letter Q is coded as −−·−, and digit 1 is coded as ·−−−−. The Morse code is case-insensitive, traditionally capital letters are used. When the message is written in Morse code, a single space is used to separate the character codes and 3 spaces are used to separate words. For example, the message HEY JUDE in Morse code is ···· · −·−−   ·−−− ··− −·· ·.
+
+NOTE: Extra spaces before or after the code have no meaning and should be ignored.
+
+In addition to letters, digits and some punctuation, there are some special service codes, the most notorious of those is the international distress signal SOS (that was first issued by Titanic), that is coded as ···−−−···. These special codes are treated as single special characters, and usually are transmitted as separate words.
+
+Your task is to implement a function that would take the morse code as input and return a decoded human-readable string.
+
+For example:
+
+selfEqual('.... . -.--   .--- ..- -.. .')
+#should return "HEY JUDE"
+"""
 
 
 

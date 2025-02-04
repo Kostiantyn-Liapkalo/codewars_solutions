@@ -23,6 +23,16 @@ files = [
 ]
 
 [[package]]
+name = "morse-code"
+version = "0.0.2"
+description = "Encrypt and decrypt morse-code."
+optional = false
+python-versions = ">=2.7"
+files = [
+    {file = "morse_code-0.0.2.tar.gz", hash = "sha256:16a959f7aa57e5141b6fe0bcfdc94f2c71cc0d8772aaf2990081f15dbb1310e6"},
+]
+
+[[package]]
 name = "packaging"
 version = "24.2"
 description = "Core utilities for Python packages"
@@ -71,4 +81,4 @@ dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygments
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "bf6f49ec64a608c5f7ee13c03b8e8e4815bf0fae5dbda81ea9fb3408fe08a277"
+content-hash = "c33a9073462e2735f7c60c7e753356e6a1763304149f5cc96da0c4317cdcb4b3"
