@@ -1,6 +1,16 @@
 import unittest
-from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse
+from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic
 
+
+class Narcissistic(unittest.TestCase):
+
+    def test_narcissistic_tests(self):
+        self.assertEqual(narcissistic(7), True, '7 is narcissistic')
+        self.assertEqual(narcissistic(371), True, '371 is narcissistic')
+
+    def test_not_narcissistic_tests(self):
+        self.assertEqual(narcissistic(122), False, '122 is not narcissistic')
+        self.assertEqual(narcissistic(4887), False, '4887 is not narcissistic')
 
 
 class TestMorseCode(unittest.TestCase):
