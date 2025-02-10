@@ -1,3 +1,18 @@
+'''
+In this kata you are required to, given a string, replace every letter with its position in the alphabet.
+
+If anything in the text isn't a letter, ignore it and don't return it.
+
+"a" = 1, "b" = 2, etc.
+
+Example
+Input = "The sunset sets at twelve o' clock."
+Output = "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"
+'''
+
+def alphabet_position(text):
+    return " ".join(str(ord(char) - 96) for char in text.lower() if char.isalpha())
+
 # Description:
 # A Narcissistic Number (or Armstrong Number) is a positive number which is the sum of its own digits, each raised to the power of the number of digits in a given base. In this Kata, we will restrict ourselves to decimal (base 10).
 #
@@ -14,9 +29,11 @@ def narcissistic( value ):
     total = sum(d ** num_digits for d in digits)
     return total == value
 
+#(2) def narcissistic(value):
+#       return value == sum(int(x) ** len(str(value)) for x in str(value))
 
-
-
+#(3) def narcissistic(value):
+#       return value == sum(list(map(lambda x:int(x)**len(str(value)),str(value))))
 
 
 # from preloaded import MORSE_CODE

@@ -1,5 +1,14 @@
 import unittest
-from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic
+from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position
+
+
+class AlphabetPosition(unittest.TestCase):
+    def test_alphabet_position(self):
+        self.assertEqual(alphabet_position("The sunset sets at twelve o' clock."), "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11")
+        self.assertEqual(alphabet_position("Hello, World!"), "8 5 12 12 15 23 15 18 12 4")
+        self.assertEqual(alphabet_position("12345"), "")
+        self.assertEqual(alphabet_position("abcXYZ"), "1 2 3 24 25 26")
+
 
 
 class Narcissistic(unittest.TestCase):
