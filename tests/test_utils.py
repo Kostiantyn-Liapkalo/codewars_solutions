@@ -1,8 +1,19 @@
 import unittest
-from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position
+from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position, delete_nth
+
+class DeleteNth(unittest.TestCase):
+
+    def test_delete_nth(self):
+        self.assertEqual(delete_nth([1,2,3,4,5,5,5,4,9,8,7], 2), [1,2,3,4,5,5,4,9,8,7])
+        self.assertEqual(delete_nth([1, 2, 3, 4, 5], 2), [1,2,3,4,5])
+        self.assertEqual(delete_nth([], 2), [])
+        self.assertEqual(delete_nth([1, 2, 3, 4, 5, 5, 5, 4, 9, 8, 7], 4), [1, 2, 3, 4, 5, 5, 5, 4, 9, 8, 7])
+        self.assertEqual(delete_nth([1, 2, 7, 7, 5, 5, 5, 8, 8, 8, 7], 2), [1, 2, 7, 7, 5, 5, 8, 8])
+
 
 
 class AlphabetPosition(unittest.TestCase):
+
     def test_alphabet_position(self):
         self.assertEqual(alphabet_position("The sunset sets at twelve o' clock."), "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11")
         self.assertEqual(alphabet_position("Hello, World!"), "8 5 12 12 15 23 15 18 12 4")
