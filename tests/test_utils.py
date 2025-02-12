@@ -1,5 +1,17 @@
 import unittest
-from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position, delete_nth
+from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position, delete_nth, generate_hashtag
+
+
+class GenerateHashtag(unittest.TestCase):
+    def test_generate_hashtag(self):
+        self.assertEqual(generate_hashtag("Hello there thanks for trying my Kata"), "#HelloThereThanksForTryingMyKata")
+        self.assertEqual(generate_hashtag("    Hello     World   "), "#HelloWorld")
+        self.assertEqual(generate_hashtag(""), False)
+        self.assertEqual(generate_hashtag("a" * 140), False)
+        self.assertEqual(generate_hashtag("code wars"), "#CodeWars")
+        self.assertEqual(generate_hashtag("  "), False)
+        self.assertEqual(generate_hashtag("test"), "#Test")
+
 
 class DeleteNth(unittest.TestCase):
 
