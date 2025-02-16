@@ -1,5 +1,47 @@
 import unittest
-from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position, delete_nth, generate_hashtag
+from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position, delete_nth, generate_hashtag,solution
+
+
+
+
+class TestRangeExtraction(unittest.TestCase):
+
+    def test_example(self):
+        args = [-10, -9, -8, -6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]
+        expected = "-10--8,-6,-3-1,3-5,7-11,14,15,17-20"
+        self.assertEqual(solution(args), expected)
+
+    def test_single_number(self):
+        # Test for the case where there is only one number in the list.
+        args = [1]
+        expected = "1"
+        self.assertEqual(solution(args), expected)
+
+    def test_two_consecutive_numbers(self):
+        # If the sequence consists of only 2 numbers,
+        # # they do not form a range, so "1,2" is expected, not "1-2".
+        args = [1, 2]
+        expected = "1,2"
+        self.assertEqual(solution(args), expected)
+
+    def test_simple_range(self):
+        # If the sequence has 3 or more numbers, it must form a range.
+        args = [1, 2, 3, 4, 5]
+        expected = "1-5"
+        self.assertEqual(solution(args), expected)
+
+    def test_mixed_ranges(self):
+        # Mixed sequence test with individual numbers and ranges.
+        args = [1, 2, 4, 5, 6, 8, 9, 10, 11, 13]
+        expected = "1,2,4-6,8-11,13"
+        self.assertEqual(solution(args), expected)
+
+    def test_non_consecutive(self):
+        # Test for a list where there are no consecutive numbers at all.
+        args = [1, 3, 5, 7]
+        expected = "1,3,5,7"
+        self.assertEqual(solution(args), expected)
+
 
 
 class GenerateHashtag(unittest.TestCase):
