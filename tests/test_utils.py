@@ -1,7 +1,26 @@
 import unittest
-from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position, delete_nth, generate_hashtag,solution
+from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position, delete_nth, generate_hashtag, solution, rot13
 
 
+class TestROT13(unittest.TestCase):
+
+    def test_rot13_example1(self):
+
+        self.assertEqual(rot13("EBG13 rknzcyr."), "ROT13 example.")
+
+    def test_rot13_example2(self):
+
+        self.assertEqual(rot13("This is my first ROT13 excercise!"), "Guvf vf zl svefg EBG13 rkprepvfr!")
+
+    def test_non_alpha(self):
+
+        self.assertEqual(rot13("1234!@#$"), "1234!@#$")
+
+    def test_mixed_text(self):
+
+        input_text = "Hello, World! 2023"
+        expected = "Uryyb, Jbeyq! 2023"
+        self.assertEqual(rot13(input_text), expected)
 
 
 class TestRangeExtraction(unittest.TestCase):
