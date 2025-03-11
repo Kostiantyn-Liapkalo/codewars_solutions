@@ -1,5 +1,24 @@
 import unittest
-from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position, delete_nth, generate_hashtag, solution, rot13
+from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position, delete_nth, generate_hashtag, solution, rot13, jump_to_zero
+
+
+
+class TestJumpToZero(unittest.TestCase):
+    def test_examples(self):
+        self.assertEqual(jump_to_zero([18, 19, 20]), [2, 2, 3])
+        self.assertEqual(jump_to_zero([7, 10, 100]), [1, 2, 11])
+
+    def test_large_numbers(self):
+        self.assertEqual(jump_to_zero([9999999]), [333582])
+
+    def test_single_values(self):
+        self.assertEqual(jump_to_zero([1]), [1])
+        self.assertEqual(jump_to_zero([5]), [1])
+        self.assertEqual(jump_to_zero([11]), [2])
+        self.assertEqual(jump_to_zero([100]), [11])
+
+    def test_mixed_cases(self):
+        self.assertEqual(jump_to_zero([9, 99, 999]), [1, 10, 80])
 
 
 class TestROT13(unittest.TestCase):

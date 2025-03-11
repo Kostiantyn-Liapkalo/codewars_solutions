@@ -1,8 +1,23 @@
 
 
+"""
+We need to write a function jump_to_zero(arr) that, for each number in the list, calculates the number of operations required to reduce it to 0.
+"""
 
 
+def jump_to_zero(arr):
 
+    results = []
+
+    for n in arr:
+        steps = 0
+        while n > 0:
+            digit_sum = sum(int(d) for d in str(n))
+            n -= digit_sum
+            steps += 1
+        results.append(steps)
+
+    return results
 
 """How can you tell an extrovert from an introvert at NSA?
 Va gur ryringbef, gur rkgebireg ybbxf ng gur BGURE thl'f fubrf.
