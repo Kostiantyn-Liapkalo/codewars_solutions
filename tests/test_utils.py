@@ -1,7 +1,19 @@
 import unittest
-from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position, delete_nth, generate_hashtag, solution, rot13, jump_to_zero
+from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position, delete_nth, generate_hashtag, solution, rot13, jump_to_zero, alphanumeric
 
 
+
+class TestAlphanumeric(unittest.TestCase):
+    def test_valid(self):
+        self.assertTrue(alphanumeric("Hello123"))
+        self.assertTrue(alphanumeric("A1B2C3"))
+        self.assertTrue(alphanumeric("Z9"))
+
+    def test_invalid(self):
+        self.assertFalse(alphanumeric("Hello 123"))
+        self.assertFalse(alphanumeric("Hello_123"))
+        self.assertFalse(alphanumeric("!@#$%"))
+        self.assertFalse(alphanumeric(""))
 
 class TestJumpToZero(unittest.TestCase):
     def test_examples(self):

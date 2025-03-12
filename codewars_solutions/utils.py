@@ -1,4 +1,9 @@
 
+import re
+
+def alphanumeric(string):
+    return bool(re.fullmatch(r"[A-Za-z0-9]+", string))
+
 
 """
 We need to write a function jump_to_zero(arr) that, for each number in the list, calculates the number of operations required to reduce it to 0.
