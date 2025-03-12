@@ -1,6 +1,22 @@
 import unittest
-from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position, delete_nth, generate_hashtag, solution, rot13, jump_to_zero, alphanumeric
+from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position, delete_nth, generate_hashtag, solution, rot13, jump_to_zero, alphanumeric, score
 
+
+class TestGreedGame(unittest.TestCase):
+    def test_examples(self):
+        self.assertEqual(score([5, 1, 3, 4, 1]), 250)
+        self.assertEqual(score([1, 1, 1, 3, 1]), 1100)
+        self.assertEqual(score([2, 4, 4, 5, 4]), 450)
+
+    def test_edge_cases(self):
+        self.assertEqual(score([1, 1, 1, 1, 1]), 1200)
+        self.assertEqual(score([2, 3, 4, 6, 2]), 0)
+        self.assertEqual(score([5, 5, 5, 5, 5]), 600)
+
+    def test_single_values(self):
+        self.assertEqual(score([1, 1, 1, 2, 3]), 1000)
+        self.assertEqual(score([5, 5, 2, 3, 4]), 100)
+        self.assertEqual(score([6, 6, 6, 1, 1]), 800)
 
 
 class TestAlphanumeric(unittest.TestCase):

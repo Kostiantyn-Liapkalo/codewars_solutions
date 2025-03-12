@@ -1,5 +1,25 @@
-
 import re
+
+from collections import Counter
+
+
+def score(dice):
+    points = {1: 1000, 6: 600, 5: 500, 4: 400, 3: 300, 2: 200}
+    single_points = {1: 100, 5: 50}
+
+    counts = Counter(dice)  # Counting the number of each value
+    total_score = 0
+
+    for n, count in counts.items():
+        if count >= 3:
+            total_score += points[n]  # Adding points for a three
+            count -= 3  #
+
+        if n in single_points:
+            total_score += count * single_points[n]  # Adding points for single values
+
+    return total_score
+
 
 def alphanumeric(string):
     return bool(re.fullmatch(r"[A-Za-z0-9]+", string))
