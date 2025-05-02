@@ -3,6 +3,19 @@ import re
 from collections import Counter
 
 
+def exp_sum(n):
+    if n < 0:
+        return 0
+    dp = [0] * (n + 1)
+    dp[0] = 1  # There is only one way to type 0 - to choose nothing
+
+    for k in range(1, n + 1):
+        for i in range(k, n + 1):
+            dp[i] += dp[i - k]
+
+    return dp[n]
+
+
 def score(dice):
     points = {1: 1000, 6: 600, 5: 500, 4: 400, 3: 300, 2: 200}
     single_points = {1: 100, 5: 50}

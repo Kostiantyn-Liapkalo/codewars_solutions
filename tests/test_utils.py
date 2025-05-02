@@ -1,6 +1,24 @@
 import unittest
-from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position, delete_nth, generate_hashtag, solution, rot13, jump_to_zero, alphanumeric, score
+from codewars_solutions.utils import odd_count, is_isogram, find_outlier, tribonacci, create_phone_number, filter_list, encode_morse, decode_morse, narcissistic, alphabet_position, delete_nth, generate_hashtag, solution, rot13, jump_to_zero, alphanumeric, score, exp_sum
 
+
+class TestExpSum(unittest.TestCase):
+    def test_basic(self):
+        self.assertEqual(exp_sum(1), 1)
+        self.assertEqual(exp_sum(2), 2)
+        self.assertEqual(exp_sum(3), 3)
+        self.assertEqual(exp_sum(4), 5)
+        self.assertEqual(exp_sum(5), 7)
+        self.assertEqual(exp_sum(10), 42)
+
+    def test_explosive(self):
+        self.assertEqual(exp_sum(50), 204226)
+        self.assertEqual(exp_sum(80), 15796476)
+        self.assertEqual(exp_sum(100), 190569292)
+
+    def test_edge_cases(self):
+        self.assertEqual(exp_sum(0), 1)   # just an empty sum
+        self.assertEqual(exp_sum(-1), 0)  # there are no ways to divide a negative number
 
 class TestGreedGame(unittest.TestCase):
     def test_examples(self):
